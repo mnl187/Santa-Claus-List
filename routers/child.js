@@ -1,12 +1,13 @@
 const {Router} = require("express");
 
-const homeRouter = Router();
+const childRouter = Router();
 
-homeRouter
+childRouter
     .get('/', (req, res) => {
-        res.redirect('/child');
+        res.render('children/list')
+
     });
 
 module.exports = {
-    homeRouter,
+    childRouter,
 };
