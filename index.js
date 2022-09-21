@@ -21,6 +21,7 @@ app.set('view engine', '.hbs');
 
 app.use('/', homeRouter);
 app.use('/child', childRouter);
+app.use('/gift', giftRouter);
 
 
 app.use(handleError);
