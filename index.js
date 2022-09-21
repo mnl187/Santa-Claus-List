@@ -4,6 +4,7 @@ const {engine} = require("express-handlebars");
 const {handleError} = require("./utils/errors");
 const {homeRouter} = require("./routers/home");
 const {childRouter} = require("./routers/child");
+const {giftRouter} = require("./routers/gift");
 
 const app = express();
 

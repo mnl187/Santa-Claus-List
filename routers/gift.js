@@ -1,14 +1,14 @@
 const {Router} = require("express");
-const {ChildRecord} = require("../records/child.record");
+const {GiftRecord} = require("../records/gift.record");
 
 const giftRouter = Router();
 
 giftRouter
     .get('/', (req, res) => {
-        // const childrenlist = ChildRecord.listAll();
+        const giftList = GiftRecord.listAll();
         res.render('gift/list', {
-            // childrenlist,
-        })
+            giftList,
+        });
 
     });
 
