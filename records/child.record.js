@@ -1,5 +1,5 @@
 class ChildRecord {
-    listAll() {
+    static listAll() {
         return [
             {
                 id:'abc',

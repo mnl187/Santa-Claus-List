@@ -7,11 +7,11 @@ const childRouter = Router();
 childRouter
     .get('/', (req, res) => {
         const childrenlist = ChildRecord.listAll();
-        const giftList = GiftRecord.listAll();
+        const giftsList = GiftRecord.listAll();
 
         res.render('children/list', {
             childrenlist,
-            giftList,
+            giftsList,
         })
 
     });
