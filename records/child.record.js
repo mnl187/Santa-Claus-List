@@ -17,7 +17,7 @@ class ChildRecord {
             this.id = uuid();
         }
 
-        await pool.execute("INSERT INTO `gifts` (`id`, `name`) VALUES (:id, :name)", {
+        await pool.execute("INSERT INTO `children` (`id`, `name`) VALUES (:id, :name)", {
             id: this.id,
             name: this.name,
         });
