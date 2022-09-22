@@ -1,22 +1,9 @@
+const {pool} = require("../utils/db");
+
 class ChildRecord {
-    static listAll() {
-        return [
-            {
-                id:'abc',
-                name: 'Ania',
-                gift: 'Lalka',
-            },
-            {
-                id:'123',
-                name: 'Piotrek',
-                gift: 'Autko',
-            },
-            {
-                id:'1ad',
-                name: 'Zdzisiu',
-                gift: 'Zestaw młody majsterkowicz',
-            },
-        ];
+        static async listAll() {
+            const [results] = await pool.execute("SELECT * FROM `children` ORDER BY `name`");
+            return results;
     }
 }
 
