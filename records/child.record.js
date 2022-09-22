@@ -26,8 +26,15 @@ class ChildRecord {
     }
 
     static async listAll() {
-        const [results] = await pool.execute("SELECT * FROM `children`");
+        const [results] = await pool.execute("SELECT * FROM `children` ORDER BY `name`");
         return results;
+    }
+
+    static async getOne(id) {
+        const [results] = await pool.execute("SELECT * FROM `children` WHERE `id` = :id", {
+            id,
+        });
+        return results.length === 0 ? null : results[0];
     }
 }
 
