@@ -10,6 +10,16 @@ giftRouter
             giftList,
         });
 
+    })
+    .post('/', async (req, res) => {
+        const data = {
+            ...req.body,
+            count: Number(req.body.count),
+        };
+        res.render('gift/list', {
+            giftList,
+        });
+
     });
 
 module.exports = {
