@@ -20,6 +20,12 @@ childRouter
         await newChild.insert();
 
         res.redirect('/child');
+    })
+    .patch('/', async (req, res) => {
+        const newChild = new ChildRecord(req.body)
+        await newChild.insert();
+
+        res.redirect('/child');
     });
 
 module.exports = {
