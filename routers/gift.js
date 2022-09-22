@@ -16,9 +16,14 @@ giftRouter
             ...req.body,
             count: Number(req.body.count),
         };
-        res.render('gift/list', {
-            giftList,
-        });
+
+        const newGift = new GiftRecord(data)
+        await newGift.insert();
+
+        res.redirect('/gift');
+        // res.render('gift/list', {
+        //     giftList,
+        // });
 
     });
 

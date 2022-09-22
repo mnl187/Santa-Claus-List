@@ -20,7 +20,7 @@ class GiftRecord {
             this.id = uuid();
         }
 
-        await pool.execute("INSERT INTO 'gifts' VALUES (:id, :name, :count)", {
+        await pool.execute("INSERT INTO `gifts` VALUES (:id, :name, :count)", {
             id: this.id,
             name: this.name,
             count: this.count,
