@@ -27,15 +27,25 @@ class ChildRecord {
 
     static async listAll() {
         const [results] = await pool.execute("SELECT * FROM `children` ORDER BY `name`");
-        return results;
+        return results.map(obj => new ChildRecord(obj));
     }
 
     static async getOne(id) {
         const [results] = await pool.execute("SELECT * FROM `children` WHERE `id` = :id", {
             id,
         });
-        return results.length === 0 ? null : results[0];
+        return results.length === 0 ? null : new ChildRecord(results[0]);
     }
+    async update() {
+
+        await pool.execute("UPDATE `children` SET `name` = :name, `giftId` = :giftId WHERE `id` = :id", {
+            id: this.id,
+            name: this.name,
+            giftId: this.giftId,
+        });
+
+    }
+
 }
 
 module.exports = {

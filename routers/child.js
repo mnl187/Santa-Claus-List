@@ -29,8 +29,12 @@ childRouter
             throw new ValidationError('Nie znaleziono dziecka o podanym ID');
         }
 
-        const gift = req.body.giftId === '' ? null :await GiftRecord.getOne(req.body.giftId)
-        // res.redirect('/child');
+        const gift = req.body.giftId === '' ? null :await GiftRecord.getOne(req.body.giftId);
+
+        child.giftId = gift?.id ?? null;
+        await child .update();
+
+        res.redirect('/child');
     });
 
 module.exports = {
