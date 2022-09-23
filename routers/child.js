@@ -31,6 +31,13 @@ childRouter
 
         const gift = req.body.giftId === '' ? null :await GiftRecord.getOne(req.body.giftId);
 
+        if (gift) {
+            if (gift.count <= await gift.countGivenGifts()) {
+
+                throw new ValidationError('Tego prezentu jest za mało');
+            }
+        }
+
         child.giftId = gift?.id ?? null;
         await child .update();
 

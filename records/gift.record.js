@@ -40,6 +40,14 @@ class GiftRecord {
         });
         return results.length === 0 ? null : new GiftRecord(results[0]);
     }
+
+    async countGivenGifts() {
+        const [[{count}]] = await pool.execute("SELECT COUNT(*) AS count FROM `children` WHERE `giftId` = :id", {
+            id: this.id,
+        });
+
+        return count;
+    }
 }
 
 
